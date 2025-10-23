@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Test Project</title>
+		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+	<body>
+		<header class="header">
+			<img src="images/Coca-Cola_logo.svg" alt="Coca-Cola logo" />
+			<div class="header__wrapper">
+				<nav>
+					<a href="#">Home</a>
+					<a href="#">About</a>
+					<a href="#">Products</a>
+					<a href="#">Contacts</a>
+				</nav>
+				<div class="burger" id="burger">
+					<span></span>
+					<span></span>
+					<span></span>
+					<div></div>
+				</div>
+			</div>
+		</header>
+
+		<div class="menu-bg" id="menu-bg"></div>
+
+		<div class="stars">
+			<div id="stars"></div>
+		</div>
+
+		<nav class="menu" id="menu">
+			<a href="#">Home</a>
+			<a href="#">About</a>
+			<a href="#">Products</a>
+			<a href="#">Contacts</a>
+		</nav>
+
+		<!-- Swiper -->
+		<div class="swiper mySwiper">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide slide1">
+					<div class="swiper-slide__box">
+						<div>
+							<h1 id="heading">Main Site Title</h1>
+							<h3>Lorem ipsum descripsum</h3>
+							<button class="hero-btn">Call to action</button>
+						</div>
+					</div>
+					<div class="cloud">
+						<p>
+							How how how !!!
+							<br />
+							Like it?
+							<br />
+							Scroll down for more !
+						</p>
+						<img src="images/cloud.png" alt="cloud" />
+					</div>
+					<img class="dedcoca" src="images/dedcoca.png" alt="dedcoca" />
+					<img class="snowflake" src="images/snowflake.png" alt="snowflake" />
+				</div>
+				<div class="swiper-slide slide2">Секція 2</div>
+				<div class="swiper-slide slide3">Секція 3</div>
+			</div>
+		</div>
+
+		<footer>
+			<div class="scroll-down"><img src="images/Arrow.svg" alt="Arrow" /></div>
+		</footer>
+
+		<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>

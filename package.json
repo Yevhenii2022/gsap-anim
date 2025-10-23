@@ -1,0 +1,24 @@
+{
+	"name": "gsap-anim",
+	"version": "1.0.0",
+	"main": "index.html",
+	"homepage": "https://Yevhenii2022.github.io/gsap-anim/",
+	"scripts": {
+		"sass": "sass css/main.scss css/main.css --watch",
+		"build": "sass css/main.scss css/main.css"
+	},
+	"devDependencies": {
+		"sass": "^1.69.0"
+	},
+	"dependencies": {
+		"gsap": "^3.12.2"
+	},
+	"keywords": [
+		"html",
+		"css",
+		"scss",
+		"javascript"
+	],
+	"author": "",
+	"license": "MIT"
+}

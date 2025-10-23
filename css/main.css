@@ -1,0 +1,272 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  letter-spacing: 0;
+  font-weight: 400;
+  overflow: hidden;
+  background: #141429;
+  color: #fff;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 72px;
+  opacity: 0;
+}
+
+h3 {
+  margin-bottom: 27px;
+  font-style: 38px;
+}
+
+.snowflake {
+  position: absolute;
+  bottom: -40px;
+  left: -200px;
+  z-index: -1;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 12px 42px;
+  border: 2px solid #fff;
+  border-radius: 20px 20px 20px 0;
+  color: #fff;
+  font-size: 16px;
+  background: transparent;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.hero-btn:hover {
+  background: #fff;
+  color: #000000;
+  cursor: pointer;
+}
+
+.swiper {
+  width: 100%;
+  height: 100vh;
+}
+.swiper .swiper-wrapper .dedcoca {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.swiper .swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: white;
+  height: 100vh;
+}
+.swiper .swiper-slide__box {
+  display: flex;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 16px 0 30px;
+}
+.swiper .swiper-slide.slide1 .swiper-slide__box {
+  padding: 0 16px 0 90px;
+}
+.swiper .swiper-slide.slide1 .cloud {
+  position: absolute;
+  right: 550px;
+  bottom: 300px;
+  z-index: 1;
+}
+.swiper .swiper-slide.slide1 .cloud p {
+  position: relative;
+  width: 180px;
+  font-size: 18px;
+  color: #000000;
+  z-index: 1;
+}
+.swiper .swiper-slide.slide1 .cloud img {
+  position: absolute;
+  top: -55px;
+  left: -45px;
+}
+.scroll-down {
+  position: absolute;
+  bottom: 40px;
+  left: 140px;
+  color: white;
+  font-size: 24px;
+  animation: bounce 1.5s infinite;
+  cursor: pointer;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow: auto;
+  }
+  .swiper {
+    height: auto;
+  }
+  .swiper .swiper-slide {
+    height: auto;
+    min-height: 100vh;
+  }
+  .scroll-down {
+    display: none;
+  }
+}
+.header {
+  max-width: 1400px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 16px;
+  z-index: 110;
+}
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 140px;
+}
+.header .burger {
+  width: 34px;
+  height: 22px;
+  cursor: pointer;
+  position: relative;
+  z-index: 110;
+}
+.header .burger div {
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 35px 0 35px 35px;
+  background: #d02b2b;
+}
+.header .burger span {
+  position: absolute;
+  height: 3px;
+  width: 34px;
+  background: #fff;
+  left: 0;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+.header .burger span:nth-child(1) {
+  top: 0;
+}
+.header .burger span:nth-child(2) {
+  top: 9px;
+}
+.header .burger span:nth-child(3) {
+  top: 18px;
+}
+
+.menu-bg {
+  position: fixed;
+  bottom: -10px;
+  right: 0;
+  width: 65vw;
+  height: 170vh;
+  background: #d02b2b;
+  border-radius: 50% 0 0 50%;
+  transform: scaleX(0);
+  transform-origin: right center;
+  z-index: 90;
+}
+@media (max-width: 768px) {
+  .menu-bg {
+    width: 100vw;
+    border-radius: 0;
+    transform-origin: center;
+  }
+}
+
+nav.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 65vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+}
+nav.menu a {
+  font-size: 2rem;
+  color: white;
+  text-decoration: none;
+  transform: translateY(30px);
+  opacity: 0;
+}
+@media (max-width: 768px) {
+  nav.menu {
+    width: 100%;
+  }
+}
+
+footer {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.stars {
+  position: absolute;
+}
+.stars #stars {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 251px 116px #fff, 1433px 1888px #fff, 1895px 1710px #fff, 1433px 1677px #fff, 344px 1476px #fff, 164px 124px #fff, 112px 61px #fff, 426px 1730px #fff, 1826px 1987px #fff, 692px 1787px #fff, 1136px 285px #fff, 526px 1842px #fff, 105px 237px #fff, 246px 965px #fff, 284px 1324px #fff, 268px 1454px #fff, 813px 1668px #fff, 949px 68px #fff, 478px 1225px #fff, 533px 1287px #fff, 1124px 60px #fff, 246px 292px #fff, 1497px 7px #fff, 800px 561px #fff, 1885px 1134px #fff, 324px 965px #fff, 560px 1775px #fff, 1040px 1415px #fff, 971px 1375px #fff, 1689px 257px #fff, 375px 750px #fff, 1788px 1141px #fff, 752px 396px #fff, 1511px 439px #fff, 1760px 1307px #fff, 471px 1009px #fff, 926px 1px #fff, 938px 1626px #fff, 964px 1128px #fff, 98px 1336px #fff, 409px 243px #fff, 383px 465px #fff, 1028px 895px #fff, 1530px 1916px #fff, 57px 1046px #fff, 981px 619px #fff, 1047px 739px #fff, 981px 1253px #fff, 853px 1333px #fff, 890px 1416px #fff, 1557px 582px #fff, 1934px 1941px #fff, 642px 445px #fff, 1683px 101px #fff, 572px 1332px #fff, 1897px 1496px #fff, 528px 1554px #fff, 1351px 1950px #fff, 1513px 682px #fff, 1489px 746px #fff, 657px 241px #fff, 1751px 1370px #fff, 636px 945px #fff, 573px 1040px #fff, 749px 655px #fff, 68px 605px #fff, 780px 276px #fff, 136px 1902px #fff, 609px 1535px #fff, 913px 1533px #fff, 1472px 643px #fff, 116px 306px #fff, 875px 1183px #fff, 1648px 922px #fff, 1565px 52px #fff, 607px 498px #fff, 974px 16px #fff, 557px 1140px #fff, 375px 672px #fff, 587px 8px #fff, 511px 1595px #fff, 572px 1797px #fff, 718px 231px #fff, 1508px 940px #fff, 1245px 1611px #fff, 467px 951px #fff, 430px 148px #fff, 1538px 930px #fff, 1119px 1832px #fff, 134px 1423px #fff;
+  animation: float 150s linear infinite;
+}
+
+@keyframes float {
+  from {
+    transform: translateY(-1000px);
+  }
+  to {
+    transform: translateY(2000px);
+  }
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

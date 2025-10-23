@@ -1,0 +1,302 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	letter-spacing: 0;
+	font-weight: 400;
+	overflow: hidden;
+	background: #141429;
+	color: #fff;
+}
+
+.container {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 0 16px;
+}
+
+h1 {
+	margin-bottom: 20px;
+	font-size: 72px;
+	opacity: 0;
+}
+
+h3 {
+	margin-bottom: 27px;
+	font-style: 38px;
+}
+
+.snowflake {
+	position: absolute;
+	bottom: -40px;
+	left: -200px;
+	z-index: -1;
+}
+
+.hero-btn {
+	display: inline-block;
+	padding: 12px 42px;
+	border: 2px solid #fff;
+	border-radius: 20px 20px 20px 0;
+	color: #fff;
+	font-size: 16px;
+	background: transparent;
+	text-decoration: none;
+	transition: all 0.3s ease;
+	&:hover {
+		background: #fff;
+		color: #000000;
+		cursor: pointer;
+	}
+}
+
+.swiper {
+	width: 100%;
+	height: 100vh;
+
+	.swiper-wrapper {
+		.dedcoca {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+		}
+	}
+
+	.swiper-slide {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		font-size: 2.5rem;
+		color: white;
+		height: 100vh;
+
+		&__box {
+			display: flex;
+			max-width: 1400px;
+			width: 100%;
+			margin: 0 auto;
+			padding: 0 16px 0 30px;
+		}
+
+		&.slide1 {
+			// display: flex;
+
+			.swiper-slide__box {
+				padding: 0 16px 0 90px;
+			}
+
+			.cloud {
+				position: absolute;
+				right: 550px;
+				bottom: 300px;
+				z-index: 1;
+				p {
+					position: relative;
+					width: 180px;
+					font-size: 18px;
+					color: #000000;
+					z-index: 1;
+				}
+				img {
+					position: absolute;
+					top: -55px;
+					left: -45px;
+				}
+			}
+		}
+		&.slide2 {
+			// background: #334455;
+		}
+		&.slide3 {
+			// background: #556677;
+		}
+	}
+}
+
+.scroll-down {
+	position: absolute;
+	bottom: 40px;
+	left: 140px;
+	color: white;
+	font-size: 24px;
+	animation: bounce 1.5s infinite;
+	cursor: pointer;
+	z-index: 10;
+}
+
+@media (max-width: 768px) {
+	html,
+	body {
+		overflow: auto;
+	}
+	.swiper {
+		height: auto;
+
+		.swiper-slide {
+			height: auto;
+			min-height: 100vh;
+		}
+	}
+	.scroll-down {
+		display: none;
+	}
+}
+
+.header {
+	max-width: 1400px;
+	position: fixed;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 40px 16px;
+	z-index: 110;
+
+	&__wrapper {
+		display: flex;
+		align-items: center;
+		gap: 140px;
+	}
+
+	.burger {
+		width: 34px;
+		height: 22px;
+		cursor: pointer;
+		position: relative;
+		z-index: 110;
+		div {
+			height: 60px;
+			width: 60px;
+			position: absolute;
+			z-index: -1;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			border-radius: 35px 0 35px 35px;
+			background: #d02b2b;
+		}
+		span {
+			position: absolute;
+			height: 3px;
+			width: 34px;
+			background: #fff;
+			left: 0;
+			border-radius: 3px;
+			transition: all 0.3s ease;
+
+			&:nth-child(1) {
+				top: 0;
+			}
+			&:nth-child(2) {
+				top: 9px;
+			}
+			&:nth-child(3) {
+				top: 18px;
+			}
+		}
+	}
+}
+
+.menu-bg {
+	position: fixed;
+	bottom: -10px;
+	right: 0;
+	width: 65vw;
+	height: 170vh;
+	background: #d02b2b;
+	border-radius: 50% 0 0 50%;
+	transform: scaleX(0);
+	transform-origin: right center;
+	z-index: 90;
+
+	@media (max-width: 768px) {
+		width: 100vw;
+		border-radius: 0;
+		transform-origin: center;
+	}
+}
+
+nav.menu {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 65vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+	z-index: 100;
+	opacity: 0;
+	pointer-events: none;
+
+	a {
+		font-size: 2rem;
+		color: white;
+		text-decoration: none;
+		transform: translateY(30px);
+		opacity: 0;
+	}
+
+	@media (max-width: 768px) {
+		width: 100%;
+	}
+}
+
+footer {
+	position: relative;
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+@function multiple-bs($n) {
+	$value: '#{random(2000)}px #{random(2000)}px #fff';
+	@for $i from 2 through $n {
+		$value: '#{$value}, #{random(2000)}px #{random(2000)}px #fff';
+	}
+	@return unquote($value);
+}
+
+.stars {
+	position: absolute;
+	#stars {
+		position: absolute;
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		box-shadow: multiple-bs(90);
+		animation: float 150s linear infinite;
+	}
+}
+
+@keyframes float {
+	from {
+		transform: translateY(-1000px);
+	}
+	to {
+		transform: translateY(2000px);
+	}
+}
+
+@keyframes bounce {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(10px);
+	}
+}
