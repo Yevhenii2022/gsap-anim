@@ -77,6 +77,13 @@ document.addEventListener('DOMContentLoaded', function (event) {
 		}
 	});
 
+	const headerWrapper = document.querySelector('.header__wrapper');
+	burger.addEventListener('click', () => {
+		setTimeout(() => {
+			headerWrapper.classList.toggle('open');
+		}, 300);
+	});
+
 	//swiper
 	if (window.innerWidth > 768) {
 		const swiper = new Swiper('.mySwiper', {
@@ -91,10 +98,45 @@ document.addEventListener('DOMContentLoaded', function (event) {
 	}
 
 	//cloud
-	const cloud = document.querySelector('.cloud');
-	cloud.style.opacity = '0';
-	cloud.style.transition = 'opacity 0.3s ease';
 	setTimeout(() => {
-		cloud.style.opacity = '1';
+		const cloud = document.querySelector('.cloud');
+		cloud.classList.add('visible');
 	}, 3000);
+
+	//stars
+	const container = document.querySelector('.stars');
+	const starCount = 15;
+
+	const svgStar = `
+    <svg class="star" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9" />
+    </svg>
+  `;
+
+	const stars = [];
+
+	for (let i = 0; i < starCount; i++) {
+		const wrapper = document.createElement('div');
+		wrapper.innerHTML = svgStar.trim();
+		const s = wrapper.querySelector('.star');
+
+		if (!s) continue;
+
+		s.style.position = 'absolute';
+		s.style.left = `${Math.random() * 100}%`;
+		s.style.top = `${Math.random() * 100}%`;
+		s.style.width = '15px';
+		s.style.height = '15px';
+
+		container.appendChild(s);
+		stars.push(s);
+	}
+
+	gsap.to(stars, {
+		opacity: 0.2,
+		duration: 1,
+		repeat: -1,
+		yoyo: true,
+		ease: 'sine.inOut',
+	});
 });
