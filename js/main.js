@@ -85,12 +85,13 @@ document.addEventListener('DOMContentLoaded', function (event) {
 	});
 
 	//swiper
-	if (window.innerWidth > 768) {
+	if (window.innerWidth > 986) {
 		const swiper = new Swiper('.mySwiper', {
 			direction: 'vertical',
 			mousewheel: true,
 			speed: 800,
 			keyboard: { enabled: true },
+			loop: true,
 		});
 		document.querySelector('.scroll-down').addEventListener('click', () => {
 			swiper.slideNext();
@@ -138,5 +139,136 @@ document.addEventListener('DOMContentLoaded', function (event) {
 		repeat: -1,
 		yoyo: true,
 		ease: 'sine.inOut',
+	});
+
+	//tabs:
+	const gifts = document.querySelectorAll('.gift-wrapper');
+	const title = document.getElementById('gift-title');
+	const desc = document.getElementById('gift-desc');
+	const image = document.getElementById('gift-image');
+	const rightSection = document.querySelector('.right');
+
+	const giftData = {
+		1: {
+			title: 'Best sock ever',
+			desc: 'Regular sock have no present inside. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem',
+			image: 'images/new-year-sock.png',
+		},
+		2: {
+			title: 'Amazing Hat',
+			desc: 'This hat brings holiday cheer. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+			image: 'images/caps.png',
+		},
+		3: {
+			title: 'Festive Bag',
+			desc: 'Perfect for gifts. Lorem Ipsum is simply dummy text of the printing and typesetting industry. More text here.',
+			image: 'images/new-year-bag.png',
+		},
+	};
+
+	title.textContent = giftData[1].title;
+	desc.textContent = giftData[1].desc;
+	image.src = giftData[1].image;
+	image.alt = giftData[1].title;
+
+	gifts.forEach(gift => {
+		gift.addEventListener('click', function () {
+			gifts.forEach(g => g.classList.remove('active'));
+			this.classList.add('active');
+			const id = this.dataset.id;
+
+			gsap.to(rightSection, {
+				opacity: 0,
+				scale: 0.95,
+				duration: 0.3,
+				onComplete: () => {
+					title.textContent = giftData[id].title;
+					desc.textContent = giftData[id].desc;
+					image.src = giftData[id].image;
+					image.alt = giftData[id].title;
+					gsap.fromTo(
+						rightSection,
+						{ opacity: 0, scale: 0.95 },
+						{ opacity: 1, scale: 1, duration: 0.3, ease: 'back.out(1.7)' },
+					);
+				},
+			});
+		});
+	});
+
+	//select
+	const customGenderSelects = document.querySelectorAll('.custom-gender-select');
+
+	customGenderSelects.forEach(selectContainer => {
+		const toggle = selectContainer.querySelector('.gender-select-toggle');
+		const popup = selectContainer.querySelector('.gender-select-popup');
+		const options = popup.querySelectorAll('.gender-option');
+
+		let selectedValue = '';
+		const defaultPlaceholder = 'Gender';
+
+		toggle.textContent = defaultPlaceholder;
+
+		const clearOptionSelection = () => {
+			options.forEach(option => option.classList.remove('selected'));
+		};
+
+		toggle.addEventListener('click', e => {
+			e.stopPropagation();
+
+			selectContainer.classList.toggle('open');
+			toggle.classList.toggle('active');
+
+			if (selectContainer.classList.contains('open')) {
+				clearOptionSelection();
+				if (selectedValue) {
+					const currentSelectedOption = popup.querySelector(
+						`.gender-option[data-value="${selectedValue}"]`,
+					);
+					if (currentSelectedOption) {
+						currentSelectedOption.classList.add('selected');
+					}
+				}
+			}
+		});
+
+		toggle.addEventListener('focus', () => {
+			toggle.classList.add('active');
+		});
+
+		toggle.addEventListener('blur', () => {
+			if (!selectContainer.classList.contains('open')) {
+				toggle.classList.remove('active');
+				if (!selectedValue) {
+					toggle.textContent = defaultPlaceholder;
+				}
+			}
+		});
+
+		options.forEach(option => {
+			option.addEventListener('click', e => {
+				e.stopPropagation();
+
+				clearOptionSelection();
+				option.classList.add('selected');
+
+				toggle.textContent = option.textContent;
+				selectedValue = option.dataset.value;
+
+				selectContainer.classList.remove('open');
+				toggle.classList.remove('active');
+				toggle.focus();
+			});
+		});
+
+		document.addEventListener('click', e => {
+			if (!selectContainer.contains(e.target)) {
+				selectContainer.classList.remove('open');
+				toggle.classList.remove('active');
+				if (!selectedValue) {
+					toggle.textContent = defaultPlaceholder;
+				}
+			}
+		});
 	});
 });

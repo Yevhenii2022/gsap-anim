@@ -12,10 +12,30 @@
 			<img src="images/Coca-Cola_logo.svg" alt="Coca-Cola logo" />
 			<div class="header__wrapper">
 				<nav>
-					<a href="#">Home</a>
-					<a href="#">About</a>
-					<a href="#">Products</a>
-					<a href="#">Contacts</a>
+					<a class="nav-link" href="#">
+						<div class="nav-link__text">
+							<span>Main</span>
+							<span>Main</span>
+						</div>
+					</a>
+					<a class="nav-link" href="#">
+						<div class="nav-link__text">
+							<span>About</span>
+							<span>About</span>
+						</div>
+					</a>
+					<a class="nav-link" href="#">
+						<div class="nav-link__text">
+							<span>Products</span>
+							<span>Products</span>
+						</div>
+					</a>
+					<a class="nav-link" href="#">
+						<div class="nav-link__text">
+							<span>Contacts</span>
+							<span>Contacts</span>
+						</div>
+					</a>
 				</nav>
 				<div class="burger" id="burger">
 					<span></span>
@@ -65,8 +85,81 @@
 					<img class="dedcoca" src="images/dedcoca.png" alt="dedcoca" />
 					<img class="snowflake" src="images/snowflake.png" alt="snowflake" />
 				</div>
-				<div class="swiper-slide slide2">Секція 2</div>
-				<div class="swiper-slide slide3">Секція 3</div>
+				<div class="swiper-slide slide2">
+					<div class="tabs">
+						<div class="left">
+							<h2>At least somewhere you can feel new year atmosphere</h2>
+							<h3>Choose your present:</h3>
+							<div class="gifts">
+								<div class="gift-wrapper active" data-id="1">
+									<img src="images/new-year-sock.png" alt="New year sock" class="gift" />
+								</div>
+								<div class="gift-wrapper" data-id="2">
+									<img src="images/caps.png" alt="Caps" class="gift" />
+								</div>
+								<div class="gift-wrapper" data-id="3">
+									<img src="images/new-year-bag.png" alt="New year bag" class="gift" />
+								</div>
+							</div>
+						</div>
+						<div class="right">
+							<div>
+								<h2 id="gift-title">Best sock ever</h2>
+								<p id="gift-desc">
+									Regular sock have no present inside. Lorem Ipsum is simply dummy text of the
+									printing and typesetting industry. Lorem
+								</p>
+							</div>
+							<img id="gift-image" src="images/new-year-sock.png" alt="Sock Image" />
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide slide3">
+					<div class="swiper-slide__box">
+						<h2>
+							Write us
+							<br />
+							for real presents
+						</h2>
+
+						<form class="wish-form">
+							<div class="row">
+								<div class="input-group">
+									<input type="text" id="name" name="name" placeholder="Name" />
+								</div>
+								<div class="input-group">
+									<input type="tel" id="phone" name="phone" placeholder="Phone" />
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="input-group">
+									<div class="custom-gender-select">
+										<div class="gender-select-toggle" tabindex="0">Gender</div>
+										<div class="gender-select-popup">
+											<div class="gender-option" data-value="boy">Boy</div>
+											<div class="gender-option" data-value="girl">Girl</div>
+										</div>
+									</div>
+								</div>
+								<div class="input-group">
+									<input type="email" id="email" name="email" placeholder="Email" />
+								</div>
+							</div>
+
+							<div class="input-group">
+								<textarea id="wish" name="wish" placeholder="Your wish"></textarea>
+							</div>
+							<div class="input-group checkbox-group">
+								<label class="custom-checkbox">
+									<input type="checkbox" id="coca_cola" name="coca_cola" />
+									<span class="checkbox-indicator"></span>
+									Whant Coca-cola with present ?
+								</label>
+							</div>
+						</form>
+					</div>
+				</div>
 			</div>
 		</div>
 
