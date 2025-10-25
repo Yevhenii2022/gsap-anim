@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 	let split = SplitText.create('#heading', { type: 'chars' });
 	gsap.from(split.chars, {
-		y: 20,
+		y: 24,
 		autoAlpha: 0,
 		stagger: 0.05,
 	});
@@ -92,6 +92,18 @@ document.addEventListener('DOMContentLoaded', function (event) {
 			speed: 800,
 			keyboard: { enabled: true },
 			loop: true,
+			on: {
+				slideChange: function () {
+					const snowflake = document.querySelector('.snowflake');
+					if (snowflake) {
+						gsap.to(snowflake, {
+							y: this.activeIndex * 185,
+							duration: 0.8,
+							ease: 'power2.out',
+						});
+					}
+				},
+			},
 		});
 		document.querySelector('.scroll-down').addEventListener('click', () => {
 			swiper.slideNext();
@@ -106,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 	//stars
 	const container = document.querySelector('.stars');
-	const starCount = 15;
+	const starCount = 14;
 
 	const svgStar = `
     <svg class="star" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -151,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 	const giftData = {
 		1: {
 			title: 'Best sock ever',
-			desc: 'Regular sock have no present inside. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem',
+			desc: 'Regular sock have no present inside. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
 			image: 'images/new-year-sock.png',
 		},
 		2: {

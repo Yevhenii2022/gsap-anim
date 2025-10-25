@@ -57,25 +57,27 @@ h3 {
 
 .snowflake {
 	position: absolute;
-	bottom: -40px;
+	bottom: -36px;
 	left: -200px;
 	z-index: -1;
 }
 
 .hero-btn {
-	display: inline-block;
-	padding: 12px 42px;
-	border: 2px solid #fff;
-	border-radius: 20px 20px 20px 0;
-	color: #fff;
-	font-size: 16px;
-	background: transparent;
-	text-decoration: none;
-	transition: all 0.3s ease;
-	&:hover {
-		background: #fff;
-		color: #000000;
-		cursor: pointer;
+	button {
+		display: inline-block;
+		padding: 12px 42px;
+		border: 2px solid #fff;
+		border-radius: 20px 20px 20px 0;
+		color: #fff;
+		font-size: 16px;
+		background: transparent;
+		text-decoration: none;
+		transition: all 0.3s ease;
+		&:hover {
+			background: #fff;
+			color: #000000;
+			cursor: pointer;
+		}
 	}
 }
 
@@ -108,10 +110,10 @@ h3 {
 		}
 
 		&.slide1 {
-			// display: flex;
-
 			.swiper-slide__box {
-				padding: 0 16px 0 90px;
+				& > div {
+					width: 100%;
+				}
 			}
 
 			.cloud {
@@ -144,6 +146,7 @@ h3 {
 			background-image: url('../images/bg-2.jpg');
 			background-repeat: no-repeat;
 			background-size: cover;
+			z-index: -1;
 		}
 		&.slide3 {
 			background-image: url('../images/bg-3.jpg');
@@ -278,7 +281,7 @@ h3 {
 	transform-origin: right center;
 	z-index: 90;
 
-	@media (max-width: 768px) {
+	@media (max-width: 986px) {
 		width: 100vw;
 		border-radius: 0;
 		transform-origin: center;
@@ -308,16 +311,17 @@ nav.menu {
 		opacity: 0;
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 986px) {
 		width: 100%;
 	}
 }
 
 .tabs {
 	max-width: 1400px;
-	margin: 0 auto;
+	margin: 20px auto 0 auto;
 	padding: 0 16px 0 30px;
 	display: flex;
+	gap: 40px;
 
 	.left {
 		.gifts {
@@ -599,10 +603,31 @@ form {
 	transform: rotate(45deg);
 }
 
+@media (max-width: 370px) {
+	.gifts {
+		.gift-wrapper {
+			width: 100px !important;
+			height: 100px !important;
+		}
+	}
+}
+
 @media (max-width: 986px) {
 	html,
 	body {
 		overflow: auto;
+	}
+	h1,
+	h2 {
+		font-size: 52px;
+	}
+	h3 {
+		font-size: 28px;
+	}
+	.header {
+		padding: 20px 16px;
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
 	}
 	.stars {
 		z-index: 1;
@@ -619,21 +644,35 @@ form {
 			}
 
 			.slide1 {
+				padding: 240px 0 0 0;
+				.swiper-slide__box {
+					padding: 0 16px 75px 16px;
+				}
 				.dedcoca {
 					width: 100%;
 					position: initial;
+				}
+				.hero-btn {
+					display: flex;
+					justify-content: center;
 				}
 			}
 
 			.slide2 {
 				.tabs {
+					margin: 0;
+					padding: 94px 16px;
 					flex-direction: column;
+					gap: 75px;
 					.gifts {
 						justify-content: space-between;
 						gap: 0;
 						.gift-wrapper {
 							width: 110px;
 							height: 110px;
+							img {
+								width: 55px;
+							}
 						}
 					}
 					.right {
@@ -642,13 +681,49 @@ form {
 						align-items: center;
 						flex-direction: column-reverse;
 						border: none;
+						h2 {
+							text-align: center;
+						}
+						img {
+							min-width: 130px;
+						}
 					}
 				}
 			}
 
 			.slide3 {
-				form {
-					width: 100%;
+				background-position: center;
+				.swiper-slide__box {
+					padding: 130px 16px 50px 16px;
+					h2 {
+						margin-bottom: 24px;
+					}
+					form {
+						width: 100%;
+						.row {
+							margin-bottom: 23px;
+							flex-direction: column;
+						}
+						.input-group {
+							input,
+							textarea {
+								padding: 12px 26px;
+								font-size: 20px;
+							}
+							textarea {
+								min-height: 95px;
+							}
+						}
+						.gender-select-toggle {
+							padding: 12px 26px;
+							width: 100%;
+							font-size: 20px;
+						}
+						.custom-checkbox {
+							font-size: 18px;
+							color: #ffffff;
+						}
+					}
 				}
 			}
 		}
